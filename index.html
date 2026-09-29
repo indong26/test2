@@ -1,0 +1,305 @@
+<html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>인동: 서울지역대학 인권연합동아리</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-inner">
+
+            <a href="#" class="logo" onclick="showHome()">
+                <img src="images/logo.png" alt="인동 로고">
+            </a>
+        <nav class="nav">              
+            <nav class="nav-dropdown">
+                <a href="about.html" class="nav-main">ABOUT</a>
+                   <div class="dropdown-menu">
+                        <a href="about.html">인동 소개</a>
+                        <a href="constitution.html">인동 정관</a>
+                        <a href="declaration.html">인동 창립선언문</a>
+                        <a href="anti-violence.html">인동 반성폭력 세칙</a>
+                   </div>
+            </nav>
+            <a href="newsletter.html">NEWSLETTER</a>
+            <a href="#activity.html">ACTIVITY</a>
+            <a href="#join us.html">JOIN US</a>
+        </nav>
+
+            <button class="menu-button" onclick="toggleMenu()" aria-label="메뉴 열기">
+                ☰
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="about.html" onclick="closeMenu()">ABOUT</a>
+        <a href="newsletter.html" onclick="closeMenu()">NEWSLETTER</a>
+        <a href="activity.html" onclick="closeMenu()">ACTIVITY</a>
+        <a href="join us.html" onclick="closeMenu()">JOIN US</a>
+    </div>
+
+
+    <!-- MAIN -->
+<main>
+    <!-- HERO / ACTIVITY SLIDER -->
+    <section class="hero-slider">
+
+        <!-- SLIDES -->
+        <div class="slides-wrapper">
+
+            <div class="slide">
+                <img src="images/activity01.jpeg" alt="활동 사진 1">
+            </div>
+
+            <div class="slide">
+                <img src="images/activity02.jpeg" alt="활동 사진 2">
+            </div>
+
+        </div>
+
+        <!-- BUTTON -->
+        <button
+            class="slider-button prev"
+            onclick="changeSlide(-1)">
+            ←
+        </button>
+
+        <button
+            class="slider-button next"
+            onclick="changeSlide(1)">
+            →
+        </button>
+
+        <!-- DOTS -->
+        <div class="slider-dots">
+            <button
+                class="dot active"
+                onclick="goToSlide(0)">
+            </button>
+
+            <button
+                class="dot"
+                onclick="goToSlide(1)">
+            </button>
+        </div>
+
+    </section>
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-decoration yellow-circle"></div>
+            <div class="hero-decoration purple-circle"></div>
+
+            <div class="hero-content">
+
+                <p class="hero-small">
+                    SEOUL UNIVERSITY HUMAN RIGHTS NETWORK
+                </p>
+
+                <h1>
+                    title1<br>
+                    <span>title2</span>
+                </h1>
+
+                <p class="hero-description">
+                    대학생 인권동아리의 활동과 고민,<br>
+                    그리고 우리가 함께 나눈 이야기를 전합니다.
+                </p>
+
+                <a href="#newsletter" class="hero-button">
+                    뉴스레터 보러가기 →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section id="about" class="section about-section">
+
+            <div class="section-label">
+                ABOUT US
+            </div>
+
+            <div class="about-grid">
+
+                <div>
+                    <h2>
+                        일상에서 시작하는<br>
+                        <span>인권 이야기</span>
+                    </h2>
+                </div>
+
+                <div class="about-text">
+                    <p>
+                        우리는 대학에서 다양한 인권의 문제를 함께 공부하고
+                        이야기하는 대학생 인권동아리입니다.
+                    </p>
+
+                    <p>
+                        노동, 여성, 장애, 이주, 기후정의 등
+                        우리의 삶과 연결된 문제를 함께 고민합니다.
+                    </p>
+
+                    <p>
+                        작은 질문에서 시작해 함께 행동하고,
+                        더 나은 사회를 상상합니다.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NEWSLETTER -->
+        <section id="newsletter" class="section newsletter-section">
+
+            <div class="section-top">
+
+                <div>
+                    <div class="section-label">
+                        NEWSLETTER
+                    </div>
+
+                    <h2>
+                        우리가 보낸<br>
+                        <span>이야기들</span>
+                    </h2>
+                </div>
+
+                <p class="section-description">
+                    인권과 사회에 대한 우리의 고민을<br>
+                    뉴스레터로 만나보세요.
+                </p>
+
+            </div>
+
+
+            <!-- JSON으로 뉴스레터가 들어오는 부분 -->
+            <div id="newsletterList" class="newsletter-grid">
+                <p class="loading">뉴스레터를 불러오는 중...</p>
+            </div>
+
+        </section>
+
+
+        <!-- NEWSLETTER DETAIL -->
+        <section id="newsletterDetail" class="newsletter-detail hidden">
+
+            <div class="detail-container">
+
+                <button class="back-button" onclick="showNewsletterList()">
+                    ← 뉴스레터 목록
+                </button>
+
+                <div id="detailContent">
+                    <!-- JS가 내용을 삽입 -->
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACTIVITY -->
+        <section id="activity" class="section activity-section">
+
+            <div class="section-label">
+                ACTIVITY
+            </div>
+
+            <div class="activity-box">
+
+                <div class="activity-title">
+                    <h2>
+                        함께 배우고,<br>
+                        함께 이야기하고,<br>
+                        <span>함께 행동합니다.</span>
+                    </h2>
+                </div>
+
+                <div class="activity-list">
+
+                    <div class="activity-item">
+                        <span>01</span>
+                        <div>
+                            <h3>인권 공부</h3>
+                            <p>
+                                사회의 다양한 문제를 함께 공부합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <span>02</span>
+                        <div>
+                            <h3>토론과 대화</h3>
+                            <p>
+                                서로 다른 생각을 나누며 질문을 확장합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <span>03</span>
+                        <div>
+                            <h3>연대와 행동</h3>
+                            <p>
+                                우리가 배운 것을 사회적 실천으로 이어갑니다.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <section id="join us" class="section join us-section">
+
+            <div class="section-label">
+                JOIN US
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-logo">
+            <img src="images/logo.png" alt="인동 로고">
+        </div>
+
+        <div>
+            서울지역대학 인권연합동아리
+        </div>
+
+        <div class="footer-copy">
+            © 2026 SEOUL UNIVERSITY HUMAN RIGHTS NETWORK
+        </div>
+
+    </footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```
